@@ -11,6 +11,16 @@ TODO
 
 ## How It Works
 
+Create build.cr to build the website:
+```crystal
+require "facet"
+
+input_dir = File.dirname(__FILE__)
+output_dir = File.join(input_dir, "dist")
+
+Facet.compile_static(input_dir, output_dir)
+```
+
 The `crystal run build.cr` command:
 
 1. **Parses** `.hcr` files (Facet Component Resources) using the built-in parser
