@@ -2,38 +2,16 @@
 
 A Crystal-based template compilation system for building interactive component-based UIs.
 
+> [!CAUTION]
+> **FACET IS IN VERY EARLY DEVELOPMENT AND PRODUCTION USE IS NOT RECOMMENDED!**
+
 ## Quick Start
 
-### Build the `facet` binary
-
-```bash
-make build
-```
-
-This compiles the `bin/facet.cr` entry point into an executable `bin/facet`.
-
-### Compile HCR Templates
-
-```bash
-./bin/facet compile <input_dir> [output_dir]
-```
-
-**Examples:**
-
-```bash
-# Compile test/ to dist/
-./bin/facet compile test/
-
-# Compile views/ to build/
-./bin/facet compile views/ build/
-
-# Using Make
-make test-compile
-```
+TODO
 
 ## How It Works
 
-The `facet compile` command:
+The `crystal run build.cr` command:
 
 1. **Parses** `.hcr` files (Facet Component Resources) using the built-in parser
 2. **Extracts** inline `<style>` blocks and combines them into one CSS file
@@ -98,11 +76,3 @@ ${'#logout-btn'}.onclick = logout()
 - Extracts input values from selectors
 - Sends POST request to `/_facet/{handler}`
 - Handles redirect and HTML update responses
-
-## Make Targets
-
-- `make build` — Compile the facet binary
-- `make build-release` — Compile an optimized release binary
-- `make test-compile` — Compile test/ templates to dist/
-- `make clean` — Remove build artifacts and dist/
-- `make help` — Show help
