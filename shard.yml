@@ -1,0 +1,19 @@
+name: facet
+version: 0.1.0
+
+authors:
+  - ezTxmMC <business@eztxm.de>
+
+description: |
+  Short description of facet
+
+# dependencies:
+#   pg:
+#     github: will/crystal-pg
+#     version: "~> 0.5"
+
+# development_dependencies:
+#   webmock:
+#     github: manastech/webmock.cr
+
+license: MIT

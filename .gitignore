@@ -1,0 +1,15 @@
+/bin/
+/lib/
+/build/
+.shards/
+shard.lock
+*.o
+*.d
+*.dwarf
+.crystal/
+/coverage/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+test/
