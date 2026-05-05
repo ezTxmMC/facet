@@ -21,7 +21,7 @@ module Facet
       router = Router.new
 
       @routes.each do |path, _view|
-        router.get(path) { |ctx| serve_spa_shell(ctx, path, @protected_routes) }
+        router.get(path) { |ctx| serve_index(ctx) }
       end
 
       router.get(/^\/views\/.+\.hcr$/) { |ctx| serve_hcr_view(ctx) }
@@ -34,10 +34,16 @@ module Facet
       router
     end
 
-    private def serve_spa_shell(ctx : Context, path : String, protected_routes : Array(String))
-      spa_html = Facet::SPA_SHELL
-      ctx.response.content_type = "text/html; charset=utf-8"
-      ctx.response.print spa_html
+    private def serve_index(ctx : Context)
+      index_path = File.join(@app_root, "index.html")
+
+      if File.exists?(index_path)
+        ctx.response.content_type = "text/html; charset=utf-8"
+        ctx.response.print File.read(index_path)
+      else
+        ctx.response.status = HTTP::Status::NOT_FOUND
+        ctx.response.print "index.html not found"
+      end
     end
 
     private def serve_hcr_view(ctx : Context)
